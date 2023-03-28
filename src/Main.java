@@ -4,8 +4,10 @@ public class Main {
         MenuComponent dinerMenu = new Menu("ObjectTown menu", "lunch menu");
         MenuComponent cafeMenu = new Menu("Cafe menu", "dinner menu");
         MenuComponent dessertMenu = new Menu("dessert menu", "enjoy dinner!!");
-        MenuComponent breakFastMenu = new Menu("Breakfast Menu", "All breakfast menu");
 
+        MenuComponent breakFastMenu = new Menu("Breakfast Menu", "All breakfast menu");
+        MenuComponent lunchMenu = new Menu("Lunch Menu", "All lunch menu");
+        MenuComponent vegiMenu = new Menu("Vegetarian Dessert", "Just vegetarian menu");
         MenuComponent allMenus = new Menu("all menus", "all menus");
 
         allMenus.add(pancakeHouseMenu);
@@ -26,6 +28,12 @@ public class Main {
         breakFastMenu.add(pancakeHouseMenu);
         breakFastMenu.add(dinerMenu);
 
+        lunchMenu.add(dinerMenu);
+        lunchMenu.add(cafeMenu);
+
+        vegiMenu.add(dessertMenu);
+
+
         WaiterBot superBot = new WaiterBot(allMenus);
         System.out.println("-----------------------------------------------------------------------------------------");
         superBot.print();
@@ -36,5 +44,17 @@ public class Main {
         WaiterBot miniBot = new WaiterBot(breakFastMenu);
         System.out.println("-----------------------------------------------------------------------------------------");
         miniBot.print();
+        System.out.println("******************************************************************************************");
+
+        WaiterBot lunchBot = new WaiterBot(lunchMenu);
+        System.out.println("-----------------------------------------------------------------------------------------");
+        lunchBot.print();
+        System.out.println("******************************************************************************************");
+
+        WaiterBot dessertBot = new WaiterBot(vegiMenu);
+        dessertBot.printVegetarianMenu();
+        System.out.println("-----------------------------------------------------------------------------------------");
+        System.out.println("******************************************************************************************");
+
     }
 }
